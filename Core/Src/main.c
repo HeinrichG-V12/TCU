@@ -60,10 +60,8 @@
 UART_HandleTypeDef huart4;
 
 /* USER CODE BEGIN PV */
-// uint8_t label[] = {0x00, 'B','M','W',' ','T','C','U',' ','5','H','P','3','0',' ','V','0','.','0','.','1',' '};
-// uint8_t label[] = {0x00, 'I','O','E','x','t','e','n','d','S','C','M',' ','V','1','.','1','.','7',' '};
+uint8_t label[] = "speeduino_mini_GPIOV0.003 201706";
 
-uint8_t label[] = {'s','p','e','e','d','u','i','n','o','_','m','i','n','i','_','G','P','I','O','V','0','.','0','0','3',' ','2','0','1','7','0','6', 0x00};
 uint8_t buffer;
 uint8_t value;
 uint8_t adc_value;
@@ -215,7 +213,9 @@ int main(void)
 			}
 			HAL_UART_Transmit(&huart4, (uint8_t*) &tps, sizeof(tps), 10);
 
-			temp = 255;
+			// temp = 255; --> 86°
+			temp = 270; // 127°
+
 			int16_t oiltemp = (int16_t) ((370-(temp))*.75);
 
 			HAL_UART_Transmit(&huart4, (uint8_t*) &oiltemp, sizeof(oiltemp), 10);
