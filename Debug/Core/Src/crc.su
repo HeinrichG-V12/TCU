@@ -1,0 +1,3 @@
+../Core/Src/crc.c:15:7:calc_crc	32	static
+../Core/Src/crc.c:96:10:crc32	16	static
+../Core/Src/crc.c:100:10:crc32inc	32	static
